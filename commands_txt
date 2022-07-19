@@ -1,0 +1,101 @@
+#creating the multi servers in nginx with .conf extension
+vim /etc/nginx/conf.d/auth.conf
+#in auth.conf 
+server{
+	listen port_number;
+	server_name example.com;
+        
+	root /path/
+        location/path1/{            #location matched 
+	}
+	location = /path2{          #location exactly matched
+	}
+}
+#giving the authentication to the web pages
+#autentication by http
+#creating the user and password
+sudo htpasswd -c /path_to_store_user_pasword/ user_name
+        #ask to creat the pasword
+#or
+sudo sh -c "echo -n 'user_name' >>  /path/ #only creating the user_name
+sudo sh -c "openssl passwd -apr1 >> /path_where_username is/
+        #ask to creat the password 
+#authentication by ip address
+#commands used are
+satisfy all; #both http and ip will be true
+satisfy any; #any of http or ip
+
+
+allow ip_address; #giving access to the perticular ip or range
+deny all;         #deny the ip except the allowed ips
+
+#ruturn directive
+default_type txt/html;     #to open in web insted of download when return executed
+return 200 (301,302,400,... based on requirement) text or path;     #200 to display the content ie:given text
+								    #301 to redirect the location to given path permanently
+								    #302 to redirect the location to given path tempararly
+#rewrite 
+
+#syntex
+rewrite regex replacement_url [flag];
+
+#flag :- break,last...
+#regex :- this will test the match incoming request url
+#replacement_url :- to replace the regex
+
+ie: rewrite ^/file_name/?$ /new_file break;
+
+
+#proxy_pass    //similar to rewrite
+
+proxy_pass url or file  
+
+#redirect    //similar to proxy_pass
+
+#headders
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
